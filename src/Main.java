@@ -2,6 +2,7 @@
 
 import applet.HelloWorldApplet;
 import search.BinarySearch;
+import search.Fibonacci;
 import search.InterpolationSearch;
 import sort.MergeSort;
 import threading.ThreadVersion;
@@ -21,6 +22,17 @@ public class Main {
 
         ThreadVersion T2 = new ThreadVersion( "Thread-2");
         T2.start();
+    }
+
+
+    private static void fibbonaciSearch() {
+        int arr[] = {10, 22, 35, 40, 45, 50,
+                80, 82, 85, 90, 100};
+        int n = 11;
+        int x = 85;
+
+        System.out.print ("Found at index: "+
+                (new Fibonacci()).search(arr, x, n));
     }
 
     private static void interpolationSort()
