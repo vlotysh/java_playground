@@ -1,5 +1,8 @@
 //import math.AreaOfTriangle;
 
+import applet.HelloWorldApplet;
+import search.BinarySearch;
+import search.InterpolationSearch;
 import sort.MergeSort;
 import threading.ThreadVersion;
 
@@ -8,7 +11,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args)  {
-        startMultiThread();
+        interpolationSort();
     }
 
     private static void startMultiThread()
@@ -18,6 +21,33 @@ public class Main {
 
         ThreadVersion T2 = new ThreadVersion( "Thread-2");
         T2.start();
+    }
+
+    private static void interpolationSort()
+    {
+        int[] array = new int[]{10, 12, 13, 16, 18, 19, 20, 21, 22, 23,
+                24, 33, 35, 42, 47};
+
+        int index = (new InterpolationSearch()).search(array,24);
+
+        // If element was found
+        if (index != -1)
+            System.out.println("Element found at index " + index);
+        else
+            System.out.println("Element not found.");
+    }
+
+    private static void binarySearch()
+    {
+        BinarySearch ob = new BinarySearch();
+        int arr[] = { 2, 3, 4, 10, 40 };
+        int n = arr.length;
+        int x = 10;
+        int result = ob.search(arr, 0, n - 1, x);
+        if (result == -1)
+            System.out.println("Element not present");
+        else
+            System.out.println("Element found at index " + result);
     }
 
     private static void runArraySort () throws IOException
